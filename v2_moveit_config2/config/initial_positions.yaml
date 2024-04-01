@@ -1,0 +1,19 @@
+# Default initial positions for bearmaxV2's ros2_control fake system
+
+initial_positions:
+  chassis_joint: 0
+  left_elbow_joint: 0
+  left_grip_joint: 0
+  left_neck_joint: 0
+  left_paw_joint: 0
+  left_rotator_joint: 0
+  left_shoulder_joint: 0
+  left_thumb_joint: 0
+  neck_yaw_joint: 0
+  right_elbow_joint: 0
+  right_grip_joint: 0
+  right_neck_joint: 0
+  right_paw_joint: 0
+  right_rotator_joint: 0
+  right_shoulder_joint: 0
+  right_thumb_joint: 0

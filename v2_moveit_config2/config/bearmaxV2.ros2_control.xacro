@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <xacro:macro name="bearmaxV2_ros2_control" params="name initial_positions_file">
+        <xacro:property name="initial_positions" value="${load_yaml(initial_positions_file)['initial_positions']}"/>
+
+        <ros2_control name="${name}" type="system">
+            <hardware>
+                <!-- By default, set up controllers for simulation. This won't work on real hardware -->
+                <plugin>mock_components/GenericSystem</plugin>
+            </hardware>
+            <joint name="chassis_joint">
+                <command_interface name="position"/>
+                <state_interface name="position">
+                  <param name="initial_value">${initial_positions['chassis_joint']}</param>
+                </state_interface>
+            </joint>
+            <joint name="left_shoulder_joint">
+                <command_interface name="position"/>
+                <state_interface name="position">
+                  <param name="initial_value">${initial_positions['left_shoulder_joint']}</param>
+                </state_interface>
+            </joint>
+            <joint name="left_rotator_joint">
+                <command_interface name="position"/>
+                <state_interface name="position">
+                  <param name="initial_value">${initial_positions['left_rotator_joint']}</param>
+                </state_interface>
+            </joint>
+            <joint name="left_elbow_joint">
+                <command_interface name="position"/>
+                <state_interface name="position">
+                  <param name="initial_value">${initial_positions['left_elbow_joint']}</param>
+                </state_interface>
+            </joint>
+            <joint name="left_grip_joint">
+                <command_interface name="position"/>
+                <state_interface name="position">
+                  <param name="initial_value">${initial_positions['left_grip_joint']}</param>
+                </state_interface>
+            </joint>
+            <joint name="left_thumb_joint">
+                <command_interface name="position"/>
+                <state_interface name="position">
+                  <param name="initial_value">${initial_positions['left_thumb_joint']}</param>
+                </state_interface>
+            </joint>
+            <joint name="left_paw_joint">
+                <command_interface name="position"/>
+                <state_interface name="position">
+                  <param name="initial_value">${initial_positions['left_paw_joint']}</param>
+                </state_interface>
+            </joint>
+            <joint name="neck_yaw_joint">
+                <command_interface name="position"/>
+                <state_interface name="position">
+                  <param name="initial_value">${initial_positions['neck_yaw_joint']}</param>
+                </state_interface>
+            </joint>
+            <joint name="left_neck_joint">
+                <command_interface name="position"/>
+                <state_interface name="position">
+                  <param name="initial_value">${initial_positions['left_neck_joint']}</param>
+                </state_interface>
+            </joint>
+            <joint name="right_neck_joint">
+                <command_interface name="position"/>
+                <state_interface name="position">
+                  <param name="initial_value">${initial_positions['right_neck_joint']}</param>
+                </state_interface>
+            </joint>
+            <joint name="right_shoulder_joint">
+                <command_interface name="position"/>
+                <state_interface name="position">
+                  <param name="initial_value">${initial_positions['right_shoulder_joint']}</param>
+                </state_interface>
+            </joint>
+            <joint name="right_rotator_joint">
+                <command_interface name="position"/>
+                <state_interface name="position">
+                  <param name="initial_value">${initial_positions['right_rotator_joint']}</param>
+                </state_interface>
+            </joint>
+            <joint name="right_elbow_joint">
+                <command_interface name="position"/>
+                <state_interface name="position">
+                  <param name="initial_value">${initial_positions['right_elbow_joint']}</param>
+                </state_interface>
+            </joint>
+            <joint name="right_grip_joint">
+                <command_interface name="position"/>
+                <state_interface name="position">
+                  <param name="initial_value">${initial_positions['right_grip_joint']}</param>
+                </state_interface>
+            </joint>
+            <joint name="right_thumb_joint">
+                <command_interface name="position"/>
+                <state_interface name="position">
+                  <param name="initial_value">${initial_positions['right_thumb_joint']}</param>
+                </state_interface>
+            </joint>
+            <joint name="right_paw_joint">
+                <command_interface name="position"/>
+                <state_interface name="position">
+                  <param name="initial_value">${initial_positions['right_paw_joint']}</param>
+                </state_interface>
+            </joint>
+
+        </ros2_control>
+    </xacro:macro>
+</robot>

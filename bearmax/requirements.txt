@@ -1,0 +1,5 @@
+dlib
+imutils
+sounddevice
+nest_asyncio
+bleak

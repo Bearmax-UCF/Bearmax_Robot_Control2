@@ -1,0 +1,8 @@
+# Goal
+string task_name
+---
+# Result
+bool success
+---
+# Feedback
+float32 left_time
