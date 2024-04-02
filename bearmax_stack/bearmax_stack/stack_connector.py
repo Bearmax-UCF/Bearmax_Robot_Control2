@@ -15,8 +15,8 @@ from std_msgs.msg import String
 
 from .asyncrcl import spin
 
-token = "Bot fNXu8nfJCxgsWe"
-DEFAULT_WS_URL = 'https://carewithbearmax.com'
+token = 'Bot kRudWq0e7Olf6QE-UrWVoeGR35bqWEDWyW1VuLHY'
+DEFAULT_WS_URL = 'https://bearmaxcare.com'
 
 
 class StackConnector(Node):
@@ -51,7 +51,7 @@ class StackConnector(Node):
             f"[Sent to Stack]: {{event: {request.event}, data: {request.data}}}")
 
     async def connect(self):
-        await self.sio_.connect(self.wsl_url, headers={"Authorization": token})
+        await self.sio_.connect(self.wsl_url, headers={"Authorization": token}, transports=["polling", "websocket"])
         await self.sio_.wait()
 
     def register_handlers(self):
