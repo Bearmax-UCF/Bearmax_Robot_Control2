@@ -1,0 +1,150 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <xacro:unless value="$(arg sim_mode)">
+        <ros2_control name="Bearmax" type="system">
+            <hardware>
+                <plugin>bearmax_hardware/BearmaxArduino</plugin>
+                <param name="device">/dev/ttyACM0</param>
+                <param name="baud_rate">57600</param>
+                <param name="timeout">180000</param>
+            </hardware>
+
+
+            <!-- Chassis Joints -->
+            <joint name="chassis_joint">
+                <command_interface name="position">
+                    <param name="min">0</param>
+                    <param name="max">180</param>
+                </command_interface>
+                <state_interface name="position" />
+            </joint>
+
+
+            <!-- Left Arm Joints -->
+            <joint name="left_shoulder_joint">
+                <command_interface name="position">
+                    <param name="min">0</param>
+                    <param name="max">180</param>
+                </command_interface>
+                <state_interface name="position" />
+            </joint>
+
+            <joint name="left_rotator_joint">
+                <command_interface name="position">
+                    <param name="min">0</param>
+                    <param name="max">180</param>
+                </command_interface>
+                <state_interface name="position" />
+            </joint>
+
+            <joint name="left_elbow_joint">
+                <command_interface name="position">
+                    <param name="min">0</param>
+                    <param name="max">180</param>
+                </command_interface>
+                <state_interface name="position" />
+            </joint>
+
+            <joint name="left_grip_joint">
+                <command_interface name="position">
+                    <param name="min">0</param>
+                    <param name="max">180</param>
+                </command_interface>
+                <state_interface name="position" />
+            </joint>
+
+            <joint name="left_thumb_joint">
+                <command_interface name="position">
+                    <param name="min">0</param>
+                    <param name="max">180</param>
+                </command_interface>
+                <state_interface name="position" />
+            </joint>
+
+            <joint name="left_paw_joint">
+                <command_interface name="position">
+                    <param name="min">0</param>
+                    <param name="max">180</param>
+                </command_interface>
+                <state_interface name="position" />
+            </joint>
+
+            
+            <!--Neck Joints-->
+            <joint name="neck_yaw_joint">
+                <command_interface name="position">
+                    <param name="min">0</param>
+                    <param name="max">180</param>
+                </command_interface>
+                <state_interface name="position" />
+            </joint>
+
+            <joint name="left_neck_joint">
+                <command_interface name="position">
+                    <param name="min">0</param>
+                    <param name="max">180</param>
+                </command_interface>
+                <state_interface name="position" />
+            </joint>
+
+            <joint name="right_neck_joint">
+                <command_interface name="position">
+                    <param name="min">0</param>
+                    <param name="max">180</param>
+                </command_interface>
+                <state_interface name="position" />
+            </joint>
+
+
+            <!--Right Arm Joints-->
+            <joint name="right_shoulder_joint">
+                <command_interface name="position">
+                    <param name="min">0</param>
+                    <param name="max">180</param>
+                </command_interface>
+                <state_interface name="position" />
+            </joint>
+
+            <joint name="right_rotator_joint">
+                <command_interface name="position">
+                    <param name="min">0</param>
+                    <param name="max">180</param>
+                </command_interface>
+                <state_interface name="position" />
+            </joint>
+
+            <joint name="right_elbow_joint">
+                <command_interface name="position">
+                    <param name="min">0</param>
+                    <param name="max">180</param>
+                </command_interface>
+                <state_interface name="position" />
+            </joint>
+
+            <joint name="right_grip_joint">
+                <command_interface name="position">
+                    <param name="min">0</param>
+                    <param name="max">180</param>
+                </command_interface>
+                <state_interface name="position" />
+            </joint>
+
+            <joint name="right_thumb_joint">
+                <command_interface name="position">
+                    <param name="min">0</param>
+                    <param name="max">180</param>
+                </command_interface>
+                <state_interface name="position" />
+            </joint>
+
+            <joint name="right_paw_joint">
+                <command_interface name="position">
+                    <param name="min">0</param>
+                    <param name="max">180</param>
+                </command_interface>
+                <state_interface name="position" />
+            </joint>
+            
+        </ros2_control>
+    </xacro:unless>
+</robot>

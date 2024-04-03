@@ -1,0 +1,1293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="bearmaxV2">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.00586162456071543 -0.000185831833419414 0.0744001117554646"
+        rpy="0 0 0" />
+      <mass
+        value="0.976780836916066" />
+      <inertia
+        ixx="0.00249083647921665"
+        ixy="-4.40340033287534E-06"
+        ixz="0.000118001479445594"
+        iyy="0.00161625182152479"
+        iyz="-2.5684104100142E-07"
+        izz="0.00301636800775809" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bearmax_description/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bearmax_description/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="right_wheel_drive_link">
+    <inertial>
+      <origin
+        xyz="-1.38693360296482E-07 -0.000198099491081072 0.0139468851825513"
+        rpy="0 0 0" />
+      <mass
+        value="0.0207208973209134" />
+      <inertia
+        ixx="1.50319217791014E-06"
+        ixy="-6.09220367635927E-10"
+        ixz="1.01736492064527E-13"
+        iyy="1.50791308225809E-06"
+        iyz="-6.47462235441163E-13"
+        izz="1.39681173741092E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bearmax_description/meshes/right_wheel_drive_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bearmax_description/meshes/right_wheel_drive_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_wheel_drive_joint"
+    type="continuous">
+    <origin
+      xyz="-0.049487 -0.067539 -0.012187"
+      rpy="1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="right_wheel_drive_link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="right_wheel_caster_link">
+    <inertial>
+      <origin
+        xyz="0 -1.11022302462516E-16 0.0274126270725132"
+        rpy="0 0 0" />
+      <mass
+        value="0.00599559282611409" />
+      <inertia
+        ixx="9.01961510756187E-07"
+        ixy="-1.95473660178741E-22"
+        ixz="4.18266535670013E-22"
+        iyy="9.01961510756187E-07"
+        iyz="-3.03899159638205E-22"
+        izz="8.58020065536495E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bearmax_description/meshes/right_wheel_caster_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bearmax_description/meshes/right_wheel_caster_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_wheel_caster_joint"
+    type="fixed">
+    <origin
+      xyz="0.15096 -0.065039 -0.012467"
+      rpy="1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="right_wheel_caster_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="left_wheel_drive_link">
+    <inertial>
+      <origin
+        xyz="-4.04399003173239E-09 1.52340051684519E-09 -0.0220131148174488"
+        rpy="0 0 0" />
+      <mass
+        value="0.0207208973209135" />
+      <inertia
+        ixx="1.50753295180584E-06"
+        ixy="-1.42169258294887E-09"
+        ixz="6.29562738041217E-13"
+        iyy="1.50357230836238E-06"
+        iyz="-1.82231785344126E-13"
+        izz="1.39681173741092E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bearmax_description/meshes/left_wheel_drive_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.647058823529412 0.517647058823529 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bearmax_description/meshes/left_wheel_drive_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_wheel_drive_joint"
+    type="continuous">
+    <origin
+      xyz="-0.049487 0.10541 -0.012467"
+      rpy="-1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="left_wheel_drive_link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="left_wheel_caster_link">
+    <inertial>
+      <origin
+        xyz="-1.11022302462516E-16 1.11022302462516E-16 -0.0141573729274869"
+        rpy="0 0 0" />
+      <mass
+        value="0.00599559282611411" />
+      <inertia
+        ixx="9.01961510756188E-07"
+        ixy="1.32348898008484E-22"
+        ixz="-1.4640564787551E-22"
+        iyy="9.01961510756188E-07"
+        iyz="-3.39826442528283E-22"
+        izz="8.58020065536496E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bearmax_description/meshes/left_wheel_caster_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bearmax_description/meshes/left_wheel_caster_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_wheel_caster_joint"
+    type="fixed">
+    <origin
+      xyz="0.15096 0.10852 -0.012467"
+      rpy="-1.5708 -0.084596 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="left_wheel_caster_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="chassis_link">
+    <inertial>
+      <origin
+        xyz="2.4421391020546E-09 3.56975005111337E-11 0.131399238783049"
+        rpy="0 0 0" />
+      <mass
+        value="0.0816032882836278" />
+      <inertia
+        ixx="9.07997410153172E-05"
+        ixy="-2.24870884032049E-10"
+        ixz="-9.88775925003615E-12"
+        iyy="9.14425226213427E-05"
+        iyz="-1.69086472447409E-13"
+        izz="9.16677155582235E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bearmax_description/meshes/chassis_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bearmax_description/meshes/chassis_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="chassis_joint"
+    type="revolute">
+    <origin
+      xyz="0.0010131 -0.00011241 0.06899"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="chassis_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.571"
+      upper="1.571"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="neck_platform_link">
+    <inertial>
+      <origin
+        xyz="0.0639785291769795 0.0387672618963074 0.125754531516558"
+        rpy="0 0 0" />
+      <mass
+        value="2.25967949465978" />
+      <inertia
+        ixx="0.00336303191779539"
+        ixy="1.4622037536743E-07"
+        ixz="-1.8593147975162E-05"
+        iyy="0.00360507316848212"
+        iyz="-1.76710531971803E-09"
+        izz="0.00578624712619691" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bearmax_description/meshes/neck_platform_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bearmax_description/meshes/neck_platform_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="neck_platform_joint"
+    type="fixed">
+    <origin
+      xyz="0 0 0.1524"
+      rpy="0 0 0" />
+    <parent
+      link="chassis_link" />
+    <child
+      link="neck_platform_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="right_shoulder_link">
+    <inertial>
+      <origin
+        xyz="0.00157311917387915 -0.00102623922384248 0.0185105761102544"
+        rpy="0 0 0" />
+      <mass
+        value="0.0977776513919209" />
+      <inertia
+        ixx="1.8062409876156E-05"
+        ixy="-5.54856654935029E-07"
+        ixz="1.07885376783993E-07"
+        iyy="2.44814438557124E-05"
+        iyz="1.25924080923552E-06"
+        izz="3.45222185665725E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bearmax_description/meshes/right_shoulder_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bearmax_description/meshes/right_shoulder_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_shoulder_joint"
+    type="revolute">
+    <origin
+      xyz="0.030725 -0.13436 0.13322"
+      rpy="1.3963 0 0" />
+    <parent
+      link="neck_platform_link" />
+    <child
+      link="right_shoulder_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="3.1416"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="right_rotator_link">
+    <inertial>
+      <origin
+        xyz="-1.49713574870702E-13 0.0136423714924579 0.059352482340451"
+        rpy="0 0 0" />
+      <mass
+        value="0.0956014967997645" />
+      <inertia
+        ixx="9.54909800762841E-05"
+        ixy="-1.2806206426243E-16"
+        ixz="6.69333905249821E-17"
+        iyy="0.000107220126409649"
+        iyz="-6.1202347296864E-06"
+        izz="2.61808049838484E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bearmax_description/meshes/right_rotator_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bearmax_description/meshes/right_rotator_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_rotator_joint"
+    type="revolute">
+    <origin
+      xyz="0.014365 -0.022483 0.023375"
+      rpy="1.5708 0 0.071362" />
+    <parent
+      link="right_shoulder_link" />
+    <child
+      link="right_rotator_link" />
+    <axis
+      xyz="0.019291 0 0.99981" />
+    <limit
+      lower="-3.1416"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="right_elbow_link">
+    <inertial>
+      <origin
+        xyz="0.00324503327132414 0.0770011659176214 -0.00874369108948658"
+        rpy="0 0 0" />
+      <mass
+        value="0.120408917606518" />
+      <inertia
+        ixx="8.26250918442277E-05"
+        ixy="2.94373747003212E-06"
+        ixz="8.62744306143528E-07"
+        iyy="2.81244680177464E-05"
+        iyz="2.55614230157999E-06"
+        izz="8.5429392780165E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bearmax_description/meshes/right_elbow_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bearmax_description/meshes/right_elbow_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_elbow_joint"
+    type="revolute">
+    <origin
+      xyz="0 -0.00565 0.087655"
+      rpy="1.5708 0.088446 0" />
+    <parent
+      link="right_rotator_link" />
+    <child
+      link="right_elbow_link" />
+    <axis
+      xyz="0.091186 0.0063159 -0.99581" />
+    <limit
+      lower="0"
+      upper="1.571"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="right_paw_link">
+    <inertial>
+      <origin
+        xyz="0.00199502598775941 0.031790695350128 -0.0141991134128856"
+        rpy="0 0 0" />
+      <mass
+        value="0.0623590994561229" />
+      <inertia
+        ixx="2.86801934608223E-05"
+        ixy="-7.05660038813967E-07"
+        ixz="4.63575311152624E-07"
+        iyy="1.88752277294517E-05"
+        iyz="6.46245163890654E-06"
+        izz="2.23459135251987E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bearmax_description/meshes/right_paw_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bearmax_description/meshes/right_paw_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_paw_joint"
+    type="revolute">
+    <origin
+      xyz="-0.024006 0.12036 -0.01965"
+      rpy="0.3537 -1.5708 -0.32332" />
+    <parent
+      link="right_elbow_link" />
+    <child
+      link="right_paw_link" />
+    <axis
+      xyz="0.0063819 0.99998 -0.00043286" />
+    <limit
+      lower="0"
+      upper="3.1416"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="right_grip_link">
+    <inertial>
+      <origin
+        xyz="0.0171506042533505 -0.00116597650280736 0.0167781569677381"
+        rpy="0 0 0" />
+      <mass
+        value="0.0230892815514852" />
+      <inertia
+        ixx="2.86685577094357E-06"
+        ixy="1.84401354842356E-07"
+        ixz="-1.51029225990118E-06"
+        iyy="5.61907728073285E-06"
+        iyz="1.04492168450739E-07"
+        izz="4.84966909081883E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bearmax_description/meshes/right_grip_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bearmax_description/meshes/right_grip_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_grip_joint"
+    type="revolute">
+    <origin
+      xyz="0.032425 0.09415 -0.019649"
+      rpy="-1.5708 0 0" />
+    <parent
+      link="right_elbow_link" />
+    <child
+      link="right_grip_link" />
+    <axis
+      xyz="0.00043286 -0.0063819 0.99998" />
+    <limit
+      lower="-1.573"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="right_thumb_link">
+    <inertial>
+      <origin
+        xyz="1.3994978181664E-05 -0.0129507329189752 0.00241003452562583"
+        rpy="0 0 0" />
+      <mass
+        value="0.0193380124608724" />
+      <inertia
+        ixx="5.48027598679071E-06"
+        ixy="-9.23159945452149E-09"
+        ixz="-5.4272585442269E-11"
+        iyy="2.22369526884831E-06"
+        iyz="-1.22325109812114E-06"
+        izz="5.52602546326349E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bearmax_description/meshes/right_thumb_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bearmax_description/meshes/right_thumb_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_thumb_joint"
+    type="revolute">
+    <origin
+      xyz="0.045203 -0.0031304 0.019197"
+      rpy="-2.103 -0.17136 -1.5399" />
+    <parent
+      link="right_grip_link" />
+    <child
+      link="right_thumb_link" />
+    <axis
+      xyz="-0.17682 0.84823 0.49923" />
+    <limit
+      lower="0"
+      upper="3.1416"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="left_shoulder_link">
+    <inertial>
+      <origin
+        xyz="-0.000695202329607791 0.00113579364423999 0.0185105761102546"
+        rpy="0 0 0" />
+      <mass
+        value="0.0977776513919208" />
+      <inertia
+        ixx="1.80161207116335E-05"
+        ixy="-2.18529936958377E-07"
+        ixz="-1.97397079199211E-07"
+        iyy="2.45277330202348E-05"
+        iyz="-1.24834332749112E-06"
+        izz="3.45222185665724E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bearmax_description/meshes/left_shoulder_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bearmax_description/meshes/left_shoulder_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_shoulder_joint"
+    type="revolute">
+    <origin
+      xyz="0.031675 0.13436 0.13322"
+      rpy="-1.3962 -0.03338 -0.0058881" />
+    <parent
+      link="neck_platform_link" />
+    <child
+      link="left_shoulder_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.1416"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="left_rotator_link">
+    <inertial>
+      <origin
+        xyz="-2.77555756156289E-16 -0.0136423714924592 0.0593524823404505"
+        rpy="0 0 0" />
+      <mass
+        value="0.0956014967997645" />
+      <inertia
+        ixx="9.54909800762845E-05"
+        ixy="-2.75815103449682E-20"
+        ixz="5.12984328680886E-20"
+        iyy="0.000107220126409649"
+        iyz="6.12023472968641E-06"
+        izz="2.61808049838483E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bearmax_description/meshes/left_rotator_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bearmax_description/meshes/left_rotator_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_rotator_joint"
+    type="revolute">
+    <origin
+      xyz="0.009425 0.02345 0.023375"
+      rpy="-1.5708 0 0" />
+    <parent
+      link="left_shoulder_link" />
+    <child
+      link="left_rotator_link" />
+    <axis
+      xyz="-0.01456 0 -0.99989" />
+    <limit
+      lower="-3.1416"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="left_elbow_link">
+    <inertial>
+      <origin
+        xyz="-0.00489225637881363 0.0771488715380395 -0.00850612570583081"
+        rpy="0 0 0" />
+      <mass
+        value="0.11711053788871" />
+      <inertia
+        ixx="8.07846600594066E-05"
+        ixy="-8.42396453117017E-07"
+        ixz="-1.52617879807391E-06"
+        iyy="2.59213197769424E-05"
+        iyz="2.82984069683788E-06"
+        izz="8.20101580519862E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bearmax_description/meshes/left_elbow_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bearmax_description/meshes/left_elbow_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_elbow_joint"
+    type="revolute">
+    <origin
+      xyz="0 0.00565 0.087655"
+      rpy="1.5708 0 3.1416" />
+    <parent
+      link="left_rotator_link" />
+    <child
+      link="left_elbow_link" />
+    <axis
+      xyz="0.23772 0.0034616 0.97133" />
+    <limit
+      lower="0"
+      upper="1.571"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="left_paw_link">
+    <inertial>
+      <origin
+        xyz="5.37113512222298E-07 0.0278751467503926 -0.0093430096172743"
+        rpy="0 0 0" />
+      <mass
+        value="0.062359099456123" />
+      <inertia
+        ixx="2.87307190339018E-05"
+        ixy="1.32069716565286E-09"
+        ixz="-6.71681846326391E-12"
+        iyy="1.88247021564033E-05"
+        iyz="6.4790572813011E-06"
+        izz="2.23459135251674E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bearmax_description/meshes/left_paw_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bearmax_description/meshes/left_paw_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_paw_joint"
+    type="revolute">
+    <origin
+      xyz="0.01515 0.12435 -0.01965"
+      rpy="-1.5708 1.4992 -1.5708" />
+    <parent
+      link="left_elbow_link" />
+    <child
+      link="left_paw_link" />
+    <axis
+      xyz="0.09336 -0.99002 0.10553" />
+    <limit
+      lower="0"
+      upper="3.1416"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="left_grip_link">
+    <inertial>
+      <origin
+        xyz="0.0172048930085962 -3.38203918365254E-06 0.0161781569785363"
+        rpy="0 0 0" />
+      <mass
+        value="0.0230892815150658" />
+      <inertia
+        ixx="2.83651611918586E-06"
+        ixy="3.05226767308167E-09"
+        ixz="-1.51397080751235E-06"
+        iyy="5.64941692547557E-06"
+        iyz="1.56593952648531E-11"
+        izz="4.84966908526827E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bearmax_description/meshes/left_grip_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bearmax_description/meshes/left_grip_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_grip_joint"
+    type="revolute">
+    <origin
+      xyz="-0.036425 0.09475 -0.01965"
+      rpy="1.5708 -0.044935 3.1416" />
+    <parent
+      link="left_elbow_link" />
+    <child
+      link="left_grip_link" />
+    <axis
+      xyz="0.10642 0.017521 0.99417" />
+    <limit
+      lower="0"
+      upper="1.573"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="left_thumb_link">
+    <inertial>
+      <origin
+        xyz="-0.00222789146124205 0.0127538277490598 0.00181003452347672"
+        rpy="0 0 0" />
+      <mass
+        value="0.0193380124544118" />
+      <inertia
+        ixx="5.38864189479947E-06"
+        ixy="5.54582580706863E-07"
+        ixz="-2.10571741237702E-07"
+        iyy="2.31532935589627E-06"
+        iyz="1.20500565888226E-06"
+        izz="5.52602546120659E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bearmax_description/meshes/left_thumb_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bearmax_description/meshes/left_thumb_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_thumb_joint"
+    type="revolute">
+    <origin
+      xyz="0.045831 0 0.018297"
+      rpy="2.0979 0.10961 1.6344" />
+    <parent
+      link="left_grip_link" />
+    <child
+      link="left_thumb_link" />
+    <axis
+      xyz="-0.098094 0.90907 -0.40492" />
+    <limit
+      lower="0"
+      upper="3.1416"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="neck_yaw_link">
+    <inertial>
+      <origin
+        xyz="-0.0104776366871882 -0.0011526599966909 0.0551304948745799"
+        rpy="0 0 0" />
+      <mass
+        value="0.0990489989948753" />
+      <inertia
+        ixx="3.64553244713511E-05"
+        ixy="-4.18900567175326E-07"
+        ixz="4.26549978448425E-07"
+        iyy="4.01286312507256E-05"
+        iyz="4.72911306807467E-08"
+        izz="1.48361833910782E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bearmax_description/meshes/neck_yaw_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.627450980392157 0.627450980392157 0.627450980392157 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bearmax_description/meshes/neck_yaw_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="neck_yaw_joint"
+    type="revolute">
+    <origin
+      xyz="-0.0010131 0.00011241 0.0554"
+      rpy="0 0 -0.0026869" />
+    <parent
+      link="neck_platform_link" />
+    <child
+      link="neck_yaw_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.573"
+      upper="1.573"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="head_platform_link">
+    <inertial>
+      <origin
+        xyz="0.011178 0.00095815 0.052453"
+        rpy="0 0 0" />
+      <mass
+        value="0.5204" />
+      <inertia
+        ixx="0.0016924"
+        ixy="5.7736E-08"
+        ixz="-7.1736E-06"
+        iyy="0.00067436"
+        iyz="-1.0425E-07"
+        izz="0.0013173" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bearmax_description/meshes/head_platform_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bearmax_description/meshes/head_platform_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="head_platform_joint"
+    type="fixed">
+    <origin
+      xyz="-1.5592E-05 -2.8815E-05 0.20898"
+      rpy="0 0 0.013445" />
+    <parent
+      link="neck_yaw_link" />
+    <child
+      link="head_platform_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="right_neck_link">
+    <inertial>
+      <origin
+        xyz="-0.0228790024938471 -0.00201950969434828 0.000880471937039384"
+        rpy="0 0 0" />
+      <mass
+        value="0.000637196311078084" />
+      <inertia
+        ixx="3.70574710581662E-08"
+        ixy="-1.70134989727839E-08"
+        ixz="-1.10925998940079E-11"
+        iyy="1.39323149365002E-08"
+        iyz="3.2317819096499E-11"
+        izz="4.87284844278571E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bearmax_description/meshes/right_neck_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bearmax_description/meshes/right_neck_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_neck_joint"
+    type="revolute">
+    <origin
+      xyz="0.01232 -0.014005 -0.18598"
+      rpy="0.096166 1.5708 0" />
+    <parent
+      link="head_platform_link" />
+    <child
+      link="right_neck_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="3.1416"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="left_neck_link">
+    <inertial>
+      <origin
+        xyz="-0.0228790032355981 0.00141776079648542 0.00157827686591278"
+        rpy="0 0 0" />
+      <mass
+        value="0.000637196311078083" />
+      <inertia
+        ixx="3.61894222185954E-08"
+        ixy="1.75829113757352E-08"
+        ixz="-1.10925998939462E-11"
+        iyy="1.48003637760711E-08"
+        iyz="3.23178190965023E-11"
+        izz="4.87284844278571E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bearmax_description/meshes/left_neck_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bearmax_description/meshes/left_neck_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_neck_joint"
+    type="revolute">
+    <origin
+      xyz="0.0094109 0.016155 -0.18598"
+      rpy="0.096166 1.5708 0" />
+    <parent
+      link="head_platform_link" />
+    <child
+      link="left_neck_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.1416"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+</robot>
