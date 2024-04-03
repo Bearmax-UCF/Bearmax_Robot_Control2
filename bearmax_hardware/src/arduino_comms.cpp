@@ -8,19 +8,21 @@ namespace bearmax_hardware
     // Used for array indexes! Don't change numbers!
     enum Joint {
         CHASSIS = 0,
-        HEAD_ROLL,
-        HEAD_PITCH,
+        L_ARM_SHOULDER,
+        L_ARM_ROTATOR,
+        L_ARM_ELBOW,
+        L_ARM_GRIP,
+        L_ARM_THUMB,
+        L_ARM_PAW,
+        R_ARM_SHOULDER,
+        R_ARM_ROTATOR,
+        R_ARM_ELBOW,
+        R_ARM_GRIP,
+        R_ARM_THUMB,
+        R_ARM_PAW,
+        L_HEAD,
+        R_HEAD,
         HEAD_YAW,
-        LEFT_EAR_YAW,
-        LEFT_EAR_PITCH,
-        RIGHT_EAR_YAW,
-        RIGHT_EAR_PITCH,
-        LEFT_ARM_SHOULDER,
-        LEFT_ARM_ROTATOR,
-        LEFT_ARM_ELBOW,
-        RIGHT_ARM_SHOULDER,
-        RIGHT_ARM_ROTATOR,
-        RIGHT_ARM_ELBOW,
         NUMBER_OF_JOINTS /* not a valid index! */
     };
 

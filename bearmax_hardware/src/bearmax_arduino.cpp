@@ -13,19 +13,21 @@ namespace bearmax_hardware
     // Used for array indexes! Don't change numbers!
     enum Joint {
         CHASSIS = 0,
-        HEAD_ROLL,
-        HEAD_PITCH,
+        L_ARM_SHOULDER,
+        L_ARM_ROTATOR,
+        L_ARM_ELBOW,
+        L_ARM_GRIP,
+        L_ARM_THUMB,
+        L_ARM_PAW,
+        R_ARM_SHOULDER,
+        R_ARM_ROTATOR,
+        R_ARM_ELBOW,
+        R_ARM_GRIP,
+        R_ARM_THUMB,
+        R_ARM_PAW,
+        L_HEAD,
+        R_HEAD,
         HEAD_YAW,
-        LEFT_EAR_YAW,
-        LEFT_EAR_PITCH,
-        RIGHT_EAR_YAW,
-        RIGHT_EAR_PITCH,
-        LEFT_ARM_SHOULDER,
-        LEFT_ARM_ROTATOR,
-        LEFT_ARM_ELBOW,
-        RIGHT_ARM_SHOULDER,
-        RIGHT_ARM_ROTATOR,
-        RIGHT_ARM_ELBOW,
         NUMBER_OF_JOINTS /* not a valid index! */
     };
 
@@ -88,19 +90,21 @@ std::vector<hardware_interface::StateInterface> BearmaxArduino::export_state_int
     */
 
     STATE_INTERFACE("chassis_joint", Joint::CHASSIS);
-    STATE_INTERFACE("head_platform_roll_joint", Joint::HEAD_ROLL);
-    STATE_INTERFACE("head_platform_pitch_joint", Joint::HEAD_PITCH);
-    STATE_INTERFACE("head_platform_yaw_joint", Joint::HEAD_YAW);
-    STATE_INTERFACE("left_ear_rotator_joint", Joint::LEFT_EAR_YAW);
-    STATE_INTERFACE("left_ear_pitch_joint", Joint::LEFT_EAR_PITCH);
-    STATE_INTERFACE("right_ear_rotator_joint", Joint::RIGHT_EAR_YAW);
-    STATE_INTERFACE("right_ear_pitch_joint", Joint::RIGHT_EAR_PITCH);
-    STATE_INTERFACE("left_arm_shoulder_joint", Joint::LEFT_ARM_SHOULDER);
-    STATE_INTERFACE("left_arm_rotator_joint", Joint::LEFT_ARM_ROTATOR);
-    STATE_INTERFACE("left_arm_elbow_joint", Joint::LEFT_ARM_ELBOW);
-    STATE_INTERFACE("right_arm_shoulder_joint", Joint::RIGHT_ARM_SHOULDER);
-    STATE_INTERFACE("right_arm_rotator_joint", Joint::RIGHT_ARM_ROTATOR);
-    STATE_INTERFACE("right_arm_elbow_joint", Joint::RIGHT_ARM_ELBOW);
+    STATE_INTERFACE("left_shoulder_joint", Joint::L_ARM_SHOULDER);
+    STATE_INTERFACE("left_rotator_joint", Joint::L_ARM_ROTATOR);
+    STATE_INTERFACE("left_elbow_joint", Joint::L_ARM_ELBOW);
+    STATE_INTERFACE("left_grip_joint", Joint::L_ARM_GRIP);
+    STATE_INTERFACE("left_thumb_joint", Joint::L_ARM_THUMB);
+    STATE_INTERFACE("left_paw_joint", Joint::L_ARM_PAW);
+    STATE_INTERFACE("right_shoulder_joint", Joint::R_ARM_SHOULDER);
+    STATE_INTERFACE("right_rotator_joint", Joint::R_ARM_ROTATOR);
+    STATE_INTERFACE("right_elbow_joint", Joint::R_ARM_ELBOW);
+    STATE_INTERFACE("right_grip_joint", Joint::R_ARM_GRIP);
+    STATE_INTERFACE("right_thumb_joint", Joint::R_ARM_THUMB);
+    STATE_INTERFACE("right_paw_joint", Joint::R_ARM_PAW);
+    STATE_INTERFACE("left_neck_joint", Joint::L_HEAD);
+    STATE_INTERFACE("right_neck_joint", Joint::R_HEAD);
+    STATE_INTERFACE("neck_yaw_joint", Joint::HEAD_YAW);
 
     return state_interfaces;
 }
@@ -122,19 +126,21 @@ std::vector<hardware_interface::CommandInterface> BearmaxArduino::export_command
     */
 
     CMD_INTERFACE("chassis_joint", Joint::CHASSIS);
-    CMD_INTERFACE("head_platform_roll_joint", Joint::HEAD_ROLL);
-    CMD_INTERFACE("head_platform_pitch_joint", Joint::HEAD_PITCH);
-    CMD_INTERFACE("head_platform_yaw_joint", Joint::HEAD_YAW);
-    CMD_INTERFACE("left_ear_rotator_joint", Joint::LEFT_EAR_YAW);
-    CMD_INTERFACE("left_ear_pitch_joint", Joint::LEFT_EAR_PITCH);
-    CMD_INTERFACE("right_ear_rotator_joint", Joint::RIGHT_EAR_YAW);
-    CMD_INTERFACE("right_ear_pitch_joint", Joint::RIGHT_EAR_PITCH);
-    CMD_INTERFACE("left_arm_shoulder_joint", Joint::LEFT_ARM_SHOULDER);
-    CMD_INTERFACE("left_arm_rotator_joint", Joint::LEFT_ARM_ROTATOR);
-    CMD_INTERFACE("left_arm_elbow_joint", Joint::LEFT_ARM_ELBOW);
-    CMD_INTERFACE("right_arm_shoulder_joint", Joint::RIGHT_ARM_SHOULDER);
-    CMD_INTERFACE("right_arm_rotator_joint", Joint::RIGHT_ARM_ROTATOR);
-    CMD_INTERFACE("right_arm_elbow_joint", Joint::RIGHT_ARM_ELBOW);
+    CMD_INTERFACE("left_shoulder_joint", Joint::L_ARM_SHOULDER);
+    CMD_INTERFACE("left_rotator_joint", Joint::L_ARM_ROTATOR);
+    CMD_INTERFACE("left_elbow_joint", Joint::L_ARM_ELBOW);
+    CMD_INTERFACE("left_grip_joint", Joint::L_ARM_GRIP);
+    CMD_INTERFACE("left_thumb_joint", Joint::L_ARM_THUMB);
+    CMD_INTERFACE("left_paw_joint", Joint::L_ARM_PAW);
+    CMD_INTERFACE("right_shoulder_joint", Joint::R_ARM_SHOULDER);
+    CMD_INTERFACE("right_rotator_joint", Joint::R_ARM_ROTATOR);
+    CMD_INTERFACE("right_elbow_joint", Joint::R_ARM_ELBOW);
+    CMD_INTERFACE("right_grip_joint", Joint::R_ARM_GRIP);
+    CMD_INTERFACE("right_thumb_joint", Joint::R_ARM_THUMB);
+    CMD_INTERFACE("right_paw_joint", Joint::R_ARM_PAW);
+    CMD_INTERFACE("left_neck_joint", Joint::L_HEAD);
+    CMD_INTERFACE("right_neck_joint", Joint::R_HEAD);
+    CMD_INTERFACE("neck_yaw_joint", Joint::HEAD_YAW);
 
     return command_interfaces;
 }
