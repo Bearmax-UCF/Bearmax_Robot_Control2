@@ -181,6 +181,7 @@ hardware_interface::CallbackReturn BearmaxArduino::on_activate(
     RCLCPP_INFO(rclcpp::get_logger("BearmaxArduino"), sService.c_str());
     RCLCPP_INFO(rclcpp::get_logger("BearmaxArduino"), res_str.c_str());
     */
+    
 
     RCLCPP_INFO(rclcpp::get_logger("BearmaxArduino"), "Activated!");
 
@@ -208,7 +209,7 @@ hardware_interface::return_type BearmaxArduino::read(
         return hardware_interface::return_type::ERROR;
     }
 
-//    RCLCPP_INFO(rclcpp::get_logger("BearmaxArduino"), "Reading Servo Values!");
+    //RCLCPP_INFO(rclcpp::get_logger("BearmaxArduino"), "Reading Servo Values!");
 
     //arduino_.getServoValues(hw_servo_states_);
 
@@ -226,7 +227,7 @@ hardware_interface::return_type BearmaxArduino::write(
         return hardware_interface::return_type::ERROR;
     }
 
-//    RCLCPP_INFO(rclcpp::get_logger("BearmaxArduino"), "Writing Servo Values!");
+    //RCLCPP_INFO(rclcpp::get_logger("BearmaxArduino"), "Writing Servo Values!");
 
     std::string res = arduino_.setServoValues(hw_servo_cmds_);
 

@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.8)
 project(bearmax_description)
 
 # Default to C99
@@ -22,8 +22,13 @@ find_package(ament_cmake REQUIRED)
 # find_package(<dependency> REQUIRED)
 
 # UNCOMMENT THE NEXT 2 LINES FOR HARDWARE INTEGRATION
-#find_package(urdf REQUIRED)
-#find_package(bearmax_hardware REQUIRED)
+find_package(urdf REQUIRED)
+find_package(bearmax_hardware REQUIRED)
+
+install(
+  DIRECTORY config urdf launch meshes
+  DESTINATION share/${PROJECT_NAME}
+)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
@@ -36,9 +41,6 @@ if(BUILD_TESTING)
   ament_lint_auto_find_test_dependencies()
 endif()
 
-install(
-  DIRECTORY config urdf launch meshes
-  DESTINATION share/${PROJECT_NAME}
-)
+
 
 ament_package()

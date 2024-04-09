@@ -144,6 +144,7 @@ class MoveitTaskServer : public rclcpp::Node
         void face_follower(const geometry_msgs::msg::Point & msg);
 
         /********** NEW Task Executors **********/
+        DEFINE_TASK_EXECUTOR(test);
         DEFINE_TASK_EXECUTOR(neutral);
         DEFINE_TASK_EXECUTOR(happy);
         DEFINE_TASK_EXECUTOR(sad);

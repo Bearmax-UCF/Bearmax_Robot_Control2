@@ -44,6 +44,7 @@ MoveitTaskServer::MoveitTaskServer()
     // Register task executors,
     // task executor functions must be named execute_<task_name>
 
+    REGISTER_TASK(test);
     REGISTER_TASK(neutral);
     REGISTER_TASK(happy);
     REGISTER_TASK(sad);
@@ -56,6 +57,33 @@ MoveitTaskServer::MoveitTaskServer()
 }
 
 /* ========== Task Executors ========== */
+
+void MoveitTaskServer::execute_test(
+    const std::shared_ptr<GoalHandleTask> goal_handle)
+    {
+        RCLCPP_INFO(this->get_logger(), "Test Pose Not for full implementation");
+
+        auto testState = JointValueMap{
+            {L_ARM_ROTATOR, (-1.400)},
+            {L_ARM_GRIP, {1.500}}
+        };
+
+        move_group_->setJointValueTarget(testState);
+        move_group_->move();
+
+        RCLCPP_INFO(this->get_logger(),
+                "Test pose assumed");
+
+        auto result = std::make_shared<Task::Result>();
+        result->success = true;
+        //RESUME_FACE_FOLLOWER(test);
+        if (goal_handle->is_canceling()) {
+            goal_handle->canceled(result);
+        } else {
+            goal_handle->succeed(result);
+        }
+
+    }
 
 void MoveitTaskServer::execute_neutral(
     const std::shared_ptr<GoalHandleTask> goal_handle)

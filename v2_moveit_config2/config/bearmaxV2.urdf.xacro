@@ -3,7 +3,7 @@
     <xacro:arg name="initial_positions_file" default="initial_positions.yaml" />
 
     <!-- Import bearmaxV2 urdf file -->
-    <xacro:include filename="$(find bearmax_description)/urdf/bearmaxV2.urdf.xacro" />
+    <xacro:include filename="$(find bearmax_description)/urdf/robot.urdf.xacro" />
 
     <!-- Import control_xacro -->
     <xacro:include filename="bearmaxV2.ros2_control.xacro" />

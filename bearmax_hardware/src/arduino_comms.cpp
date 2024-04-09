@@ -2,6 +2,7 @@
 
 #include <sstream>
 #include <cstdlib>
+#include <cmath>
 
 namespace bearmax_hardware
 {
