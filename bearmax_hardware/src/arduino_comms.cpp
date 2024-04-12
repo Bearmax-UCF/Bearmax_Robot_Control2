@@ -100,7 +100,9 @@ namespace bearmax_hardware
             if (i > 0) {
                 ss << ":";
             }
-            ss << (int)(v[i] * 180 / 3.1416);
+            //double x = abs((v[i] * 180 / 3.1416));
+            //ss << std::to_string(x);
+            ss << (int) abs((v[i] * 180 / 3.1416));
         }
 
         ss << "\r";

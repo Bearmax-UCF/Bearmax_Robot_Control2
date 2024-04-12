@@ -82,6 +82,12 @@ def generate_launch_description():
             )
         ]
 
+    # Hacky workaround to make arduino boot
+    minicom = ExecuteProcess(
+        cmd=["putty -load Ros2Test"],
+        shell=True
+    )
+
     return LaunchDescription(
         [
             DeclareLaunchArgument(
@@ -89,6 +95,7 @@ def generate_launch_description():
                 default_value="False",
                 description="Should Rviz be launched?"
             ),
+            minicom,
             rviz_node,
             static_tf,
             rsp,

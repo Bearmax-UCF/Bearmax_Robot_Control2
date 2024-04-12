@@ -62,10 +62,10 @@ def generate_launch_description():
     return LaunchDescription(
         [
 #           camera,
-            emotion_pipeline,
+            #emotion_pipeline,
             base,
             task_server,
-            emotion_game,
-           stack_connector
+            #emotion_game,
+            #stack_connector
         ]
     )

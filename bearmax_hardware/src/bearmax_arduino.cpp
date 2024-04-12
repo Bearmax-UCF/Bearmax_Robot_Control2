@@ -4,6 +4,8 @@
 #include <limits>
 #include <memory>
 #include <vector>
+#include <chrono>
+#include <thread>
 
 #include "hardware_interface/types/hardware_interface_type_values.hpp"
 #include "rclcpp/rclcpp.hpp"
@@ -152,6 +154,11 @@ hardware_interface::CallbackReturn BearmaxArduino::on_activate(
         arduino_.connect();
     }
 
+    /*using namespace std::this_thread;
+    using namespace std::chrono;
+
+    sleep_for(nanoseconds(5*(1000000000)));*/
+
     // TODO: Maybe add an 'activate' command to arduino to power on the servos?
 
     // Set default values.
@@ -161,7 +168,6 @@ hardware_interface::CallbackReturn BearmaxArduino::on_activate(
             hw_servo_cmds_[i] = 0;
         }
     }
-
     /*
     std::vector<uint8_t> res;
 
@@ -215,6 +221,7 @@ hardware_interface::return_type BearmaxArduino::read(
 
     for (uint i = 0; i < hw_servo_states_.size(); i++) {
         hw_servo_states_[i] = hw_servo_cmds_[i];
+
     }
 
     return hardware_interface::return_type::OK;
