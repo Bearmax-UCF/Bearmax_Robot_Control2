@@ -64,7 +64,7 @@ void MoveitTaskServer::execute_test(
         RCLCPP_INFO(this->get_logger(), "Test Pose Not for full implementation");
 
         auto testState = JointValueMap{
-            {L_ARM_ROTATOR, (-1.400)},
+            {L_ARM_ROTATOR, (0.000)},
             {L_ARM_GRIP, {1.500}}
         };
 
@@ -90,6 +90,8 @@ void MoveitTaskServer::execute_neutral(
     {
         RCLCPP_INFO(this->get_logger(), "RETURNING TO NEUTRAL POSITION");
 
+        
+        
         auto restState = JointValueMap{
             {CHASSIS, {0.000}},
             {L_ARM_GRIP, (0.000)},
@@ -102,10 +104,29 @@ void MoveitTaskServer::execute_neutral(
             {R_ARM_ROTATOR, (0.000)},
             {R_ARM_ELBOW, (0.000)},
             {R_ARM_PAW, (0.000)},
-            {HEAD_YAW, (0.000)},
             {L_HEAD, (0.000)},
-            {R_HEAD, (0.000)}
+            {R_HEAD, (0.000)},
+            {HEAD_YAW, (0.000)}
         };
+
+        /*
+        auto restState = JointValueMap{
+            {CHASSIS, {0.000}},
+            {L_ARM_SHOULDER, (3.141)},
+            {L_ARM_ROTATOR, (1.505)},
+            {L_ARM_ELBOW, (0.000)},
+            {L_ARM_GRIP, (1.505)},
+            {L_ARM_THUMB, (0.000)},
+            {R_ARM_SHOULDER, (0.000)},
+            {R_ARM_ROTATOR, (1.505)},
+            {R_ARM_ELBOW, (3.141)},
+            {L_ARM_PAW, (1.505)},
+            {R_ARM_GRIP, (0.000)},
+            {R_ARM_PAW, (0.000)},
+            {HEAD_YAW, (1.505)},
+            {L_HEAD, (1.505)},
+            {R_HEAD, (1.505)}
+        };*/
 
 
         move_group_->setJointValueTarget(restState);
@@ -130,19 +151,18 @@ void MoveitTaskServer::execute_happy(
     {
         RCLCPP_INFO(this->get_logger(), "Executing goal: happy");
 
+        // Complex Emotion
+        /*
         auto const target_list = [this]{
             std::vector<JointValueMap> tlst;
 
-
-
-
             auto stateOne = JointValueMap{
-                {L_ARM_GRIP, (1.505)},
                 {L_ARM_SHOULDER, (-2.445)},
                 {L_ARM_ELBOW, (0.000)},
-                {R_ARM_GRIP, (-1.505)},
+                {L_ARM_GRIP, (1.505)},
                 {R_ARM_SHOULDER, (2.445)},
-                {R_ARM_ELBOW, (0.000)}
+                {R_ARM_ELBOW, (0.000)},
+                {R_ARM_GRIP, (-1.505)}
             };
 
             tlst.emplace_back(stateOne);
@@ -177,21 +197,77 @@ void MoveitTaskServer::execute_happy(
             tlst.emplace_back(stateFour);
             
 
-            auto restState = JointValueMap { 
+            auto restState = JointValueMap{
+                {CHASSIS, {0.000}},
                 {L_ARM_GRIP, (0.000)},
                 {L_ARM_SHOULDER, (0.000)},
                 {L_ARM_ROTATOR, (0.000)},
                 {L_ARM_ELBOW, (0.000)},
+                {L_ARM_PAW, (0.000)},
                 {R_ARM_GRIP, (0.000)},
                 {R_ARM_SHOULDER, (0.000)},
                 {R_ARM_ROTATOR, (0.000)},
-                {R_ARM_ELBOW, (0.000)}
+                {R_ARM_ELBOW, (0.000)},
+                {R_ARM_PAW, (0.000)},
+                {L_HEAD, (0.000)},
+                {R_HEAD, (0.000)},
+                {HEAD_YAW, (0.000)}
             };
 
             tlst.emplace_back(restState);
 
             return tlst;
+        }();*/
+
+        // Simple Emotion
+        auto const target_list = [this]{
+            std::vector<JointValueMap> tlst;
+            
+            auto stateOne = JointValueMap{
+                {L_ARM_SHOULDER, (-2.445)},
+                {L_ARM_ELBOW, (0.000)},
+                {L_ARM_GRIP, (1.505)},
+                {R_ARM_SHOULDER, (2.445)},
+                {R_ARM_ELBOW, (0.000)},
+                {R_ARM_GRIP, (-1.505)}
+            };
+
+            tlst.emplace_back(stateOne);
+
+            auto stateTwo = JointValueMap{
+                {L_ARM_SHOULDER, (-1.445)},
+                {L_ARM_ELBOW, (1.222)},
+                {R_ARM_SHOULDER, (1.445)},
+                {R_ARM_ELBOW, (1.222)}
+            };
+
+            tlst.emplace_back(stateTwo);
+            tlst.emplace_back(stateOne);
+            tlst.emplace_back(stateTwo);
+
+
+            auto restState = JointValueMap{
+                {CHASSIS, {0.000}},
+                {L_ARM_GRIP, (0.000)},
+                {L_ARM_SHOULDER, (0.000)},
+                {L_ARM_ROTATOR, (0.000)},
+                {L_ARM_ELBOW, (0.000)},
+                {L_ARM_PAW, (0.000)},
+                {R_ARM_GRIP, (0.000)},
+                {R_ARM_SHOULDER, (0.000)},
+                {R_ARM_ROTATOR, (0.000)},
+                {R_ARM_ELBOW, (0.000)},
+                {R_ARM_PAW, (0.000)},
+                {L_HEAD, (0.000)},
+                {R_HEAD, (0.000)},
+                {HEAD_YAW, (0.000)}
+            };
+
+            //tlst.emplace_back(restState);
+
+            return tlst;
         }();
+
 
         RCLCPP_INFO(this->get_logger(), "WOOOOOOOOO");
 
@@ -225,7 +301,8 @@ void MoveitTaskServer::execute_sad(
     {
         RCLCPP_INFO(this->get_logger(), "Executing goal: sad");
 
-
+        // Complex Emotion
+        /*
         auto const target_list = [this]{
             std::vector<JointValueMap> tlst;
 
@@ -261,21 +338,66 @@ void MoveitTaskServer::execute_sad(
             tlst.emplace_back(stateOne);
 
 
-            auto restState = JointValueMap { 
+            auto restState = JointValueMap{
+                {CHASSIS, {0.000}},
                 {L_ARM_GRIP, (0.000)},
                 {L_ARM_SHOULDER, (0.000)},
                 {L_ARM_ROTATOR, (0.000)},
                 {L_ARM_ELBOW, (0.000)},
+                {L_ARM_PAW, (0.000)},
                 {R_ARM_GRIP, (0.000)},
                 {R_ARM_SHOULDER, (0.000)},
                 {R_ARM_ROTATOR, (0.000)},
-                {R_ARM_ELBOW, (0.000)}
+                {R_ARM_ELBOW, (0.000)},
+                {R_ARM_PAW, (0.000)},
+                {L_HEAD, (0.000)},
+                {R_HEAD, (0.000)},
+                {HEAD_YAW, (0.000)}
             };
 
             tlst.emplace_back(restState);
 
             return tlst;
-        }();
+        }();*/
+
+        // Simple Emotion
+        auto const target_list = [this]{
+            std::vector<JointValueMap> tlst;
+
+            auto simpleState = JointValueMap{    
+                {L_ARM_SHOULDER, (-1.834)},
+                {L_ARM_ROTATOR, (-0.51)},
+                {L_ARM_ELBOW, (1.222)},
+                {L_ARM_GRIP, (1.573)},
+                {R_ARM_SHOULDER, (1.936)},
+                {R_ARM_ROTATOR, (-0.73)},
+                {R_ARM_ELBOW, (1.222)},
+                {R_ARM_GRIP, (-1.573)}
+            };
+            
+            tlst.emplace_back(simpleState);
+
+            auto restState = JointValueMap{
+                {CHASSIS, {0.000}},
+                {L_ARM_GRIP, (0.000)},
+                {L_ARM_SHOULDER, (0.000)},
+                {L_ARM_ROTATOR, (0.000)},
+                {L_ARM_ELBOW, (0.000)},
+                {L_ARM_PAW, (0.000)},
+                {R_ARM_GRIP, (0.000)},
+                {R_ARM_SHOULDER, (0.000)},
+                {R_ARM_ROTATOR, (0.000)},
+                {R_ARM_ELBOW, (0.000)},
+                {R_ARM_PAW, (0.000)},
+                {L_HEAD, (0.000)},
+                {R_HEAD, (0.000)},
+                {HEAD_YAW, (0.000)}
+            };
+
+            //tlst.emplace_back(restState);
+
+            return tlst;
+        }();        
 
         RCLCPP_INFO(this->get_logger(), "Staying sad until canceled...");
 
@@ -310,7 +432,8 @@ void MoveitTaskServer::execute_angry(
     {
         RCLCPP_INFO(this->get_logger(), "Executing goal: angry");
 
-
+        // Complex Movement
+        /*
         auto const target_list = [this]{
             std::vector<JointValueMap> tlst;
 
@@ -334,39 +457,86 @@ void MoveitTaskServer::execute_angry(
             tlst.emplace_back(stateOne);
 
             auto stateThree = JointValueMap{
-                {R_ARM_SHOULDER, (1.391)},
-                {R_ARM_ELBOW, (1.118)},
+                {CHASSIS, (-0.400)},
                 {L_ARM_SHOULDER, (-1.391)},
                 {L_ARM_ELBOW, (1.118)},
-                {CHASSIS, (-0.400)},
+                {R_ARM_SHOULDER, (1.391)},
+                {R_ARM_ELBOW, (1.118)},
                 {HEAD_YAW, (0.250)}
             };
 
             tlst.emplace_back(stateThree);
 
             auto stateFour = JointValueMap{
-                {L_ARM_GRIP, (1.573)},
                 {L_ARM_ROTATOR, (-0.441)},
-                {R_ARM_GRIP, (-1.573)},
-                {R_ARM_ROTATOR, (-0.441)}
+                {L_ARM_GRIP, (1.573)},
+                {R_ARM_ROTATOR, (-0.441)},
+                {R_ARM_GRIP, (-1.573)}
             };
 
             tlst.emplace_back(stateFour);
 
-            auto restState = JointValueMap { 
+            auto restState = JointValueMap{
+                {CHASSIS, {0.000}},
                 {L_ARM_GRIP, (0.000)},
                 {L_ARM_SHOULDER, (0.000)},
                 {L_ARM_ROTATOR, (0.000)},
                 {L_ARM_ELBOW, (0.000)},
+                {L_ARM_PAW, (0.000)},
                 {R_ARM_GRIP, (0.000)},
                 {R_ARM_SHOULDER, (0.000)},
                 {R_ARM_ROTATOR, (0.000)},
                 {R_ARM_ELBOW, (0.000)},
-                {CHASSIS, (0.000)},
+                {R_ARM_PAW, (0.000)},
+                {L_HEAD, (0.000)},
+                {R_HEAD, (0.000)},
                 {HEAD_YAW, (0.000)}
             };
-
             tlst.emplace_back(restState);
+
+            return tlst;
+        }();*/
+
+        // Simple Movement for test
+        auto const target_list = [this]{
+            std::vector<JointValueMap> tlst;
+
+             auto simpleState = JointValueMap{
+                {CHASSIS, (-0.400)},
+                {L_ARM_SHOULDER, (-1.391)},
+                {L_ARM_ROTATOR, (-0.441)},
+                {L_ARM_ELBOW, (1.118)},
+                {L_ARM_GRIP, (1.573)},
+                {L_ARM_PAW, (1.545)},
+                {R_ARM_SHOULDER, (1.391)},
+                {R_ARM_ROTATOR, (-0.441)},
+                {R_ARM_ELBOW, (1.118)},
+                {R_ARM_GRIP, (-1.573)},
+                {R_ARM_PAW, (1.545)},
+                {HEAD_YAW, (0.250)}
+            };
+
+            tlst.emplace_back(simpleState);
+            
+
+            auto restState = JointValueMap{
+                {CHASSIS, {0.000}},
+                {L_ARM_GRIP, (0.000)},
+                {L_ARM_SHOULDER, (0.000)},
+                {L_ARM_ROTATOR, (0.000)},
+                {L_ARM_ELBOW, (0.000)},
+                {L_ARM_PAW, (0.000)},
+                {R_ARM_GRIP, (0.000)},
+                {R_ARM_SHOULDER, (0.000)},
+                {R_ARM_ROTATOR, (0.000)},
+                {R_ARM_ELBOW, (0.000)},
+                {R_ARM_PAW, (0.000)},
+                {L_HEAD, (0.000)},
+                {R_HEAD, (0.000)},
+                {HEAD_YAW, (0.000)}
+            };
+            
+            //tlst.emplace_back(restState);
 
             return tlst;
         }();
@@ -403,21 +573,23 @@ void MoveitTaskServer::execute_confused(
     {
         RCLCPP_INFO(this->get_logger(), "Executing goal: confused");
 
+        // Complex Emotion Definition
         auto const target_list = [this]{
             std::vector<JointValueMap> tlst;
 
             auto stateOne = JointValueMap { // ADD RIGHT PAW MOVEMENT & NECK MOVEMENT IN HARDWARE IMPLEMENTATION
-                {R_ARM_PAW, {0.000}},
+                {R_ARM_SHOULDER, (2.717)},
                 {R_ARM_GRIP, (0.000)},
-                {R_ARM_SHOULDER, (2.717)}
+                {R_ARM_PAW, {0.000}}
+                //{R_HEAD, (0.0872)}
             };
 
             tlst.emplace_back(stateOne);
 
             auto stateTwo = JointValueMap { // ADD RIGHT PAW MOVEMENT & NECK MOVEMENT IN HARDWARE IMPLEMENTATION
-                {R_ARM_PAW, {0.500}},
+                {R_ARM_SHOULDER, (2.717)},
                 {R_ARM_GRIP, (-0.774)},
-                {R_ARM_SHOULDER, (2.717)}
+                {R_ARM_PAW, {0.500}}
             };
 
             tlst.emplace_back(stateTwo);
@@ -425,10 +597,21 @@ void MoveitTaskServer::execute_confused(
             tlst.emplace_back(stateTwo);
             tlst.emplace_back(stateOne);
 
-            auto restState = JointValueMap { 
-                {R_ARM_PAW, {0.000}},
+            auto restState = JointValueMap{
+                {CHASSIS, {0.000}},
+                {L_ARM_GRIP, (0.000)},
+                {L_ARM_SHOULDER, (0.000)},
+                {L_ARM_ROTATOR, (0.000)},
+                {L_ARM_ELBOW, (0.000)},
+                {L_ARM_PAW, (0.000)},
                 {R_ARM_GRIP, (0.000)},
-                {R_ARM_SHOULDER, (0.000)}
+                {R_ARM_SHOULDER, (0.000)},
+                {R_ARM_ROTATOR, (0.000)},
+                {R_ARM_ELBOW, (0.000)},
+                {R_ARM_PAW, (0.000)},
+                {L_HEAD, (0.000)},
+                {R_HEAD, (0.000)},
+                {HEAD_YAW, (0.000)}
             };
 
             tlst.emplace_back(restState);
@@ -487,10 +670,21 @@ void MoveitTaskServer::execute_shocked(
 
             tlst.emplace_back(stateTwo);
 
-            auto restState = JointValueMap {
+            auto restState = JointValueMap{
                 {CHASSIS, {0.000}},
-                {L_ARM_SHOULDER, (0.0)},
-                {R_ARM_SHOULDER, (0.0)},
+                {L_ARM_GRIP, (0.000)},
+                {L_ARM_SHOULDER, (0.000)},
+                {L_ARM_ROTATOR, (0.000)},
+                {L_ARM_ELBOW, (0.000)},
+                {L_ARM_PAW, (0.000)},
+                {R_ARM_GRIP, (0.000)},
+                {R_ARM_SHOULDER, (0.000)},
+                {R_ARM_ROTATOR, (0.000)},
+                {R_ARM_ELBOW, (0.000)},
+                {R_ARM_PAW, (0.000)},
+                {L_HEAD, (0.000)},
+                {R_HEAD, (0.000)},
+                {HEAD_YAW, (0.000)}
             };
 
             tlst.emplace_back(restState);
@@ -530,6 +724,7 @@ void MoveitTaskServer::execute_worried(
     {
         RCLCPP_INFO(this->get_logger(), "Executing goal: worried");
         
+        // Complex Emotion ADD NECK MOVEMENT WHEN FULLY TESTING
         auto const target_list = [this]{
             std::vector<JointValueMap> tlst;
 
@@ -538,8 +733,8 @@ void MoveitTaskServer::execute_worried(
                 {L_ARM_ROTATOR, {-0.56}},
                 {L_ARM_ELBOW, {1.154}},
                 {R_ARM_SHOULDER, {1.657}}, //SUBJECT TO CHANGE
-                {R_ARM_ROTATOR, {-0.407}},
-                {R_ARM_ELBOW, {0.934}}
+                {R_ARM_ELBOW, {0.934}},
+                {R_ARM_PAW, {0.000}}
             };
 
             tlst.emplace_back(stateOne);
@@ -550,8 +745,8 @@ void MoveitTaskServer::execute_worried(
                 {L_ARM_ROTATOR, {-0.56}},
                 {L_ARM_ELBOW, {1.154}},
                 {R_ARM_SHOULDER, {1.657}}, //SUBJECT TO CHANGE
-                {R_ARM_ROTATOR, {0.00}},
-                {R_ARM_ELBOW, {0.934}}
+                {R_ARM_ELBOW, {0.934}},
+                {R_ARM_PAW, {1.154}}
             };
 
             tlst.emplace_back(stateTwo);
@@ -559,13 +754,21 @@ void MoveitTaskServer::execute_worried(
             tlst.emplace_back(stateTwo);
             tlst.emplace_back(stateOne);
 
-            auto restState = JointValueMap {
-                {L_ARM_SHOULDER, (0.0)},
-                {L_ARM_ROTATOR, (0.0)},
-                {L_ARM_ELBOW, (0.0)},
-                {R_ARM_SHOULDER, (0.0)},
-                {R_ARM_ROTATOR, (0.0)},
-                {R_ARM_ELBOW, (0.0)},
+            auto restState = JointValueMap{
+                {CHASSIS, {0.000}},
+                {L_ARM_GRIP, (0.000)},
+                {L_ARM_SHOULDER, (0.000)},
+                {L_ARM_ROTATOR, (0.000)},
+                {L_ARM_ELBOW, (0.000)},
+                {L_ARM_PAW, (0.000)},
+                {R_ARM_GRIP, (0.000)},
+                {R_ARM_SHOULDER, (0.000)},
+                {R_ARM_ROTATOR, (0.000)},
+                {R_ARM_ELBOW, (0.000)},
+                {R_ARM_PAW, (0.000)},
+                {L_HEAD, (0.000)},
+                {R_HEAD, (0.000)},
+                {HEAD_YAW, (0.000)}
             };
 
             tlst.emplace_back(restState);
@@ -611,51 +814,102 @@ void MoveitTaskServer::execute_scared(
     {
         RCLCPP_INFO(this->get_logger(), "Executing goal: scared");
 
+        // Complex emotion
+        /*
         auto const target_list = [this]{
             std::vector<JointValueMap> tlst;
 
             auto stateOne = JointValueMap {
-                {L_ARM_GRIP, (1.573)},
                 {L_ARM_SHOULDER, (-1.834)},
                 {L_ARM_ROTATOR, (-0.51)},
                 {L_ARM_ELBOW, (1.222)},
-                {R_ARM_GRIP, (-1.573)},
+                {L_ARM_GRIP, (1.573)},
                 {R_ARM_SHOULDER, (1.936)},
                 {R_ARM_ROTATOR, (-0.73)},
-                {R_ARM_ELBOW, (1.222)}
+                {R_ARM_ELBOW, (1.222)},
+                {R_ARM_GRIP, (-1.573)},
             };
 
             tlst.emplace_back(stateOne);
 
             auto stateTwo = JointValueMap {
-                {L_ARM_GRIP, (0.00)},
+                {CHASSIS, (-0.977)},
                 {L_ARM_SHOULDER, (-1.494)},
                 {L_ARM_ROTATOR, (-0.934)},
                 {L_ARM_ELBOW, (1.307)},
-                {R_ARM_GRIP, (0.00)},
+                {L_ARM_GRIP, (0.00)},
                 {R_ARM_SHOULDER, (1.494)},
                 {R_ARM_ROTATOR, (-0.934)},
                 {R_ARM_ELBOW, (1.46)},
-                {HEAD_YAW, (0.628)},
-                {CHASSIS, (-0.977)}
+                {R_ARM_GRIP, (0.00)},
+                {HEAD_YAW, (0.628)}
             };
 
             tlst.emplace_back(stateTwo);
-            tlst.emplace_back(stateTwo);
+            tlst.emplace_back(stateOne);
             tlst.emplace_back(stateTwo);
 
-            auto restState = JointValueMap {
-                {L_ARM_SHOULDER, (0.0)},
-                {L_ARM_ROTATOR, (0.0)},
-                {L_ARM_ELBOW, (0.0)},
-                {R_ARM_SHOULDER, (0.0)},
-                {R_ARM_ROTATOR, (0.0)},
-                {R_ARM_ELBOW, (0.0)},
-                {HEAD_YAW, (0.0)},
-                {CHASSIS, (0.0)}
+            auto restState = JointValueMap{
+                {CHASSIS, {0.000}},
+                {L_ARM_GRIP, (0.000)},
+                {L_ARM_SHOULDER, (0.000)},
+                {L_ARM_ROTATOR, (0.000)},
+                {L_ARM_ELBOW, (0.000)},
+                {L_ARM_PAW, (0.000)},
+                {R_ARM_GRIP, (0.000)},
+                {R_ARM_SHOULDER, (0.000)},
+                {R_ARM_ROTATOR, (0.000)},
+                {R_ARM_ELBOW, (0.000)},
+                {R_ARM_PAW, (0.000)},
+                {L_HEAD, (0.000)},
+                {R_HEAD, (0.000)},
+                {HEAD_YAW, (0.000)}
             };
 
             tlst.emplace_back(restState);
+
+            return tlst;
+
+
+        }();
+        */
+        // Simple emotion for test
+        auto const target_list = [this]{
+            std::vector<JointValueMap> tlst;
+
+            auto simpleState = JointValueMap {
+                {CHASSIS, (-0.977)},
+                {L_ARM_SHOULDER, (-1.494)},
+                {L_ARM_ROTATOR, (-0.934)},
+                {L_ARM_ELBOW, (1.307)},
+                {L_ARM_GRIP, (1.573)},
+                {R_ARM_SHOULDER, (1.494)},
+                {R_ARM_ROTATOR, (-0.934)},
+                {R_ARM_ELBOW, (1.46)},
+                {R_ARM_GRIP, (-1.573)},
+                {HEAD_YAW, (0.628)}
+            };
+
+            tlst.emplace_back(simpleState);
+
+            auto restState = JointValueMap{
+                {CHASSIS, {0.000}},
+                {L_ARM_GRIP, (0.000)},
+                {L_ARM_SHOULDER, (0.000)},
+                {L_ARM_ROTATOR, (0.000)},
+                {L_ARM_ELBOW, (0.000)},
+                {L_ARM_PAW, (0.000)},
+                {R_ARM_GRIP, (0.000)},
+                {R_ARM_SHOULDER, (0.000)},
+                {R_ARM_ROTATOR, (0.000)},
+                {R_ARM_ELBOW, (0.000)},
+                {R_ARM_PAW, (0.000)},
+                {L_HEAD, (0.000)},
+                {R_HEAD, (0.000)},
+                {HEAD_YAW, (0.000)}
+            };
+
+            //tlst.emplace_back(restState);
 
             return tlst;
 
@@ -689,6 +943,7 @@ void MoveitTaskServer::execute_scared(
 
 
     }
+    
 
 void MoveitTaskServer::execute_annoyed(
     const std::shared_ptr<GoalHandleTask> goal_handle)
@@ -700,49 +955,52 @@ void MoveitTaskServer::execute_annoyed(
             std::vector<JointValueMap> tlst;
 
             auto stateOne = JointValueMap {
+                {CHASSIS, (0.400)},
                 {L_ARM_SHOULDER, (-1.155)},
                 {L_ARM_ROTATOR, (-1.053)},
                 {L_ARM_ELBOW, (1.545)},
                 {R_ARM_SHOULDER, (0.645)},
                 {R_ARM_ROTATOR, (-1.053)},
                 {R_ARM_ELBOW, (1.545)},
-                {HEAD_YAW, (0.56)},
-                {CHASSIS, (0.400)}
+                {HEAD_YAW, (0.56)} 
             };
             
             tlst.emplace_back(stateOne);
 
             auto stateTwo = JointValueMap {
+                {CHASSIS, (0.400)},
                 {L_ARM_SHOULDER, (-1.155)},
                 {L_ARM_ROTATOR, (-1.053)},
                 {L_ARM_ELBOW, (1.545)},
                 {R_ARM_SHOULDER, (0.645)},
                 {R_ARM_ROTATOR, (-1.053)},
                 {R_ARM_ELBOW, (1.545)},
-                {HEAD_YAW, (0.00)},
-                {CHASSIS, (0.400)}
+                {HEAD_YAW, (0.00)}
             };
 
             tlst.emplace_back(stateTwo);
             tlst.emplace_back(stateOne);
             tlst.emplace_back(stateTwo);
-            tlst.emplace_back(stateOne);
-            tlst.emplace_back(stateTwo);
-            tlst.emplace_back(stateOne);
-            tlst.emplace_back(stateTwo);
+            
 
-            auto restState = JointValueMap {
-                {L_ARM_SHOULDER, (0.0)},
-                {L_ARM_ROTATOR, (0.0)},
-                {L_ARM_ELBOW, (0.0)},
-                {R_ARM_SHOULDER, (0.0)},
-                {R_ARM_ROTATOR, (0.0)},
-                {R_ARM_ELBOW, (0.0)},
-                {HEAD_YAW, (0.0)},
-                {CHASSIS, (0.0)}
+            auto restState = JointValueMap{
+                {CHASSIS, {0.000}},
+                {L_ARM_GRIP, (0.000)},
+                {L_ARM_SHOULDER, (0.000)},
+                {L_ARM_ROTATOR, (0.000)},
+                {L_ARM_ELBOW, (0.000)},
+                {L_ARM_PAW, (0.000)},
+                {R_ARM_GRIP, (0.000)},
+                {R_ARM_SHOULDER, (0.000)},
+                {R_ARM_ROTATOR, (0.000)},
+                {R_ARM_ELBOW, (0.000)},
+                {R_ARM_PAW, (0.000)},
+                {L_HEAD, (0.000)},
+                {R_HEAD, (0.000)},
+                {HEAD_YAW, (0.000)}
             };
 
-            tlst.emplace_back(restState);
+            //tlst.emplace_back(restState);
             return tlst;
 
         }();
