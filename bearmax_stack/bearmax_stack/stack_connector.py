@@ -80,7 +80,7 @@ class StackConnector(Node):
         @self.sio_.event
         async def emotionGame(action, userID):
             self.logger.info(f"Got game state command: {action} | {userID}")
-            if not action in ("start", "stop"):
+            if not action in ("start", "stop", "happy", "sad", "angry", "confused", "shocked", "worried", "scared", "annoyed"):
                 self.logger.error(
                     f"emotionGame handler expected string action and got {action}")
             # "emotionStart" or "emotionStop"

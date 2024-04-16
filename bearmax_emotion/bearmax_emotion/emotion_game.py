@@ -193,6 +193,8 @@ class GameNode(Node):
             self._game.handleEmotionChange(self._last_emotion)
 
     def stackCallback(self, data):
+        def on_finish(*_, **__):
+            self.logger.info("Sending Pose to Bot")
         action = data.data
         self.logger.info(f"Received from stack: {action}")
         if "emotionStart" in action:
@@ -206,6 +208,22 @@ class GameNode(Node):
             self.logger.info(
                 f"Game ended successfully! Final score: {final_score_str}")
             self.send_to_stack("speak", "Thanks for playing!")
+        elif "emotionHappy" in action:
+            self.send_task("happy", on_finish)
+        elif "emotionSad" in action:
+            self.send_task("sad", on_finish)
+        elif "emotionAngry" in action:
+            self.send_task("angry", on_finish)
+        elif "emotionConfused" in action:
+            self.send_task("confused", on_finish)
+        elif "emotionShocked" in action:
+            self.send_task("shocked", on_finish)
+        elif "emotionWorried" in action:
+            self.send_task("worried", on_finish)
+        elif "emotionScared" in action:
+            self.send_task("scared", on_finish)
+        elif "emotionAnnoyed" in action:
+            self.send_task("annoyed", on_finish)
         elif action[:3] == "ACK":
             if self._ack_callback is not None:
                 _cb = self._ack_callback
